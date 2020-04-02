@@ -1,0 +1,36 @@
+
+body{
+    text-align: center;
+}
+
+#child1{
+    width: 340px;
+    height: 240px;
+    background-color: #d01414;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    position: relative;
+    display: inline-block;
+    top: 200px; 
+}
+
+
+#child2{
+    width: 340px;
+    height: 68px;
+    background-color: #b8b6b6;
+    position: relative;
+    display: inline-block;
+    top: 2o0px;
+}
+
+#child3{
+    width: 210px;
+    height: 180px;
+    background-color: white;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    position: relative;
+    display: inline-block;
+    top: 2o0px;
+}
