@@ -122,5 +122,5 @@ const reservations = {
   }
   
   const name = prompt('Please enter the name for your reservation');
- if (name x)  
+
   
