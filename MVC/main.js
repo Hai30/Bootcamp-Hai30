@@ -35,51 +35,51 @@
 // Exersice 1:
 //============
 
-const posts = [
-    {
-        name: "Uncle Jerome",
-        text: "Happy birthday kido!"
-    },
-    {
-        name: "BFF Charlene",
-        text: "HEARTS LOVE YOU FOREVER BFF4LYFE HBD"
-    },
-    {
-        name: "Old High School Teacher",
-        text: "Hey ace, have a good one."
-    }
-]
+// const posts = [
+//     {
+//         name: "Uncle Jerome",
+//         text: "Happy birthday kido!"
+//     },
+//     {
+//         name: "BFF Charlene",
+//         text: "HEARTS LOVE YOU FOREVER BFF4LYFE HBD"
+//     },
+//     {
+//         name: "Old High School Teacher",
+//         text: "Hey ace, have a good one."
+//     }
+// ]
 
 
-const render = function() {
-    for(let post of posts) {
-        $("#posts").append($(`<div class="post">${post.name}: ${post.text}</div>`))
-    }
-}
+// const render = function() {
+//     for(let post of posts) {
+//         $("#posts").append($(`<div class="post">${post.name}: ${post.text}</div>`))
+//     }
+// }
 
 
-render()
+// render()
 
 
-$("button").on("click", function () {
+// $("button").on("click", function () {
     
 
 
-    const $name = $("#name")
-    const $text = $("#text")
+//     const $name = $("#name")
+//     const $text = $("#text")
 
 
-    const post = {name: $name.val(), text: $text.val()}
+//     const post = {name: $name.val(), text: $text.val()}
 
 
-    posts.push(post)
+//     posts.push(post)
 
 
-    $("#posts").empty()
-    render()
+//     $("#posts").empty()
+//     render()
 
 
-    $name.val("")
-    $text.val("")
-})
+//     $name.val("")
+//     $text.val("")
+// })
 
