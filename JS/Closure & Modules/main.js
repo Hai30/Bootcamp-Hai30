@@ -1,168 +1,134 @@
-//  Callbacks & Arrow Functions:
+//  JS Closure & Modules:
 //-----------------------------
+
+// Closures:
+//==========
+// -------------------------------
+
+// const foo = function () {
+//     const x = 1
+  
+//     const bar = function () {
+//       console.log(x) //notice this inner function using the outer function's variable
+//     }
+  
+//     return bar
+//   }
+  
+//   const baz = foo() //out here, x doesn't exist
+//   baz() //but when we invoke baz, we're printing x!
+
+
+// --------------------------------
+
+// const setCounter = function (num) {
+//     let counter = 0
+  
+//     const count = function () {
+//       counter += num;
+//       console.log(counter)
+//     }
+  
+//     return count
+//   }
+  
+//   const increment = setCounter(2)
+//   increment()
+  
+// -----------------------------------
+// Modules:
+//==========
+
+// const mathOperations = function () {
+//     const add = function (x, y) {
+//         return x + y;
+//     }
+
+//     const subtract = function (x, y) {
+//         return x - y;
+//     }
+
+//     const multiply = function (x, y) {
+//         return x * y;
+//     }
+
+//     const divide = function (x, y) {
+//         return x / y;
+//     }
+
+//     return {
+//         add: add,
+//         sub: subtract,
+//         mult: multiply,
+//         div: divide
+//     }
+    
+// }
+
+// const m = mathOperations()
+//-------------------------------------
+const UsersModule = function () {
+    const _users = ['Aaron', 'Avi'];
+
+    const addUser = function (user) {
+        _users.push(user)
+    }
+
+    const listUsers = function () {
+        for (let user of _users) {
+            console.log(user)
+        }
+    }
+
+    return {
+        addUser: addUser,
+        listUsers: listUsers
+    }
+}
+
+const usersModule = UsersModule()
+
+usersModule.addUser('Narkis')
+usersModule.listUsers()
+
+
+
+
 
 // Spot Check 1:
 //--------------
 
-// const first = function () {
-//     setTimeout(function () {
-//         console.log("should be first")
-//     }, 3000)
+// const Family = function () {
+//     const members = []
+
+//     const birth = function (name) {
+//         members.push(name)
+//         console.log(members)
+//     }
+
+//     return birth
 // }
 
-// const second = function () {
-//     console.log("should be second")
-// }
-
-// first()
-// second()
-
-
-// const first = function (callback) { //receive the function as a parameter
-//     setTimeout(function () {
-//         console.log("should be first")
-//         callback() //this is the `second` function being invoked
-//     }, 3000)
-// }
-
-// const second = function () {
-//     console.log("should be second")
-// }
-
-// first(second) //pass the second function to the first, as an argument
+// const giveBirth = Family()
+// giveBirth("Clarissa")
+// giveBirth("Mayana")
 
 
 
 // Spot Check 2:
 //--------------
-
-// let users = []
-
-// const getData = function () {
-//     setTimeout(function () {
-//         users = [{ name: "Rick" }, { name: "Morty" }]
-//         console.log("Got users")
-//     }, 3000);
-// }
-
-// const displayData = function () {
-//     console.log("Going to display: " + users)
-//     for (user of users) {
-//         console.log(user.name)
-//     }
-// }
-
-// getData()
-// displayData()
-
-
-// let users = []
-
-// const getData = function (display) {
-//   setTimeout ( function () {
-//     users = [{name: "Rick"}, {name: "Morty"}]
-//     console.log("Got users")
-//     display()
-//   }, 3000)
-// }
-
-// const displayData = function () {
-//   console.log("Going to display: " + users)
-//   for (user of users) {
-//     console.log(user.name)
-//   }
-// }
-
-// getData(displayData)
+// m.add(13, 29)
+// m.mult(1.75, 24)
+// m.mult(7, m.div(36, 6))
 
 
 // Spot Check 3:
 //--------------
-
-// const timer = function(){
-//     console.log(new Date())
-//   }
-  
-//   setInterval(timer, 1000)
-
-  
-//   setInterval(function(){
-//     console.log(new Date())
-//   }, 1000)
-
-
-// Spot Check 4:
-//--------------
-
-// const square = num => console.log(num*num)
-
-// square(5)
-// square(2)
-// square(6)
+// usersModule.addUser('Josh')
+// usersModule.addUser('Dana')
+// usersModule.listUsers()
+// console.log(userModule.users)
 
 
 
-// Spot Check 5:
-//--------------
-
-// formalTitle = getFormalTitle("Madamme", "Lellouche")
-// console.log(formalTitle) //returns "Maddame Lellouche"
-
-
-
-// const formalTitle = (name1, name2) =>  name1 +" "+name2
-
-// console.log(formalTitle("Madamme", "Lellouche"))
-
-
-// const suspenseBuilder = {
-//     name: "El Mysterio",
-//     displayName: function () {
-
-//         console.log("You are going to see the name in 3 seconds...")
-
-//         setTimeout(function () { //normal function
-//             console.log("The name is: " + this.name)
-//         }, 3000)
-
-//     }
-// }
-
-// suspenseBuilder.displayName()
-
-
-// const suspenseBuilder = {
-//     name: "El Mysterio",
-//     displayName: function () {
-
-//         console.log("You are going to see the name in 3 seconds...")
-
-//         setTimeout(() => { //this is the change
-//             console.log("The name is: " + this.name)
-//         }, 3000)
-
-//     }
-// }
-
-// suspenseBuilder.displayName()
-
-
-// let x = {
-//     count: 12,
-//     go: () => {
-//         setTimeout(function () {
-//             console.log(this.count)
-//         }, 1500)
-//     }
-// }
-// x.go()
-
-// setInterval(()=>{console.log("hi")}, 2000)
-
-const run = (name) => {console.log("Run, " + name + ", run!")}
-const yell = function(action){
-    let env = "Forest"
-    action(env)
-}
-run(yell)
 
